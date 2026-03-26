@@ -3,7 +3,7 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-app.secret_key = "SECRET_KEY"
+app.secret_key = os.environ.get("SECRET_KEY")
 
 UPLOAD_FOLDER = "static/songs"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
