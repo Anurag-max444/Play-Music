@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music Player</title>
+
+  <!-- 📱 Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 🎨 CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+  <!-- 🔝 Navbar -->
+  <div class="navbar">
+    <h2>🎵 Music World</h2>
+    <a href="/logout" class="logout-btn">Logout</a>
+  </div>
+
+  <!-- 🎶 Song Section -->
+  <div class="container">
+
+    <h3>All Songs</h3>
+
+    <div class="song-list">
+
+      {% for song in songs %}
+      <div class="song-card">
+        
+        <p class="song-title">{{ song[1] }}</p>
+
+        <audio controls>
+          <source src="{{ url_for('static', filename='songs/' + song[2]) }}" type="audio/mp3">
+        </audio>
+
+      </div>
+      {% endfor %}
+
+    </div>
+
+  </div>
+
+  <!-- 🔻 Footer -->
+  <footer>
+    <p>Developed by Ayush</p>
+  </footer>
+
+</body>
+</html>

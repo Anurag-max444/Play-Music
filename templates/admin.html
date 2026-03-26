@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+
+  <!-- 📱 Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 🎨 CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+  <!-- 🔝 Navbar -->
+  <div class="navbar">
+    <h2>⚙️ Admin Panel</h2>
+    <a href="/logout" class="logout-btn">Logout</a>
+  </div>
+  {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <div class="success">
+      {% for msg in messages %}
+        <p>{{ msg }}</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endwith %}
+
+  <div class="container">
+
+    <!-- 🎵 Upload Song -->
+    <div class="card">
+      <h3>Upload Song</h3>
+
+      <form method="POST" enctype="multipart/form-data">
+        <input type="text" name="title" placeholder="Song Title" required>
+        <input type="file" name="song" accept="audio/*" required>
+        <button type="submit">Upload Song</button>
+      </form>
+    </div>
+
+    <h3>All Songs</h3>
+
+{% for song in songs %}
+  <div class="song-card">
+    
+    <p>{{ song[1] }}</p>
+
+    <audio controls>
+      <source src="{{ url_for('static', filename='songs/' + song[2]) }}">
+    </audio>
+
+    <br><br>
+
+    <a href="/delete-song/{{ song[0] }}" 
+       style="background:red; padding:5px 10px; color:white; border-radius:5px; text-decoration:none;">
+       Delete ❌
+    </a>
+
+  </div>
+{% endfor %}
+
+    <!-- 👤 Create User -->
+    <div class="card">
+      <h3>Create User</h3>
+
+      <form method="POST" action="/create-user">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <button type="submit">Create User</button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- 🔻 Footer -->
+  <footer>
+    <p>Developed by Ayush</p>
+  </footer>
+
+</body>
+</html>

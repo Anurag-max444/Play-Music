@@ -1,0 +1,186 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+  background: #121212;
+  color: white;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1db954;
+  padding: 12px 20px;
+}
+
+.navbar h2 {
+  font-size: 20px;
+}
+
+.logout-btn {
+  color: white;
+  text-decoration: none;
+  background: red;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background: darkred;
+}
+
+/* CONTAINER */
+.container {
+  padding: 20px;
+  text-align: center;
+}
+
+/* LOGIN BOX */
+.container form {
+  margin-top: 40px;
+}
+
+.container input {
+  padding: 10px;
+  margin: 10px;
+  width: 250px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+}
+
+/* PASSWORD BOX */
+.password-box {
+  position: relative;
+  width: 250px;
+  margin: auto;
+}
+
+.password-box input {
+  width: 100%;
+  padding-right: 35px;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+}
+
+/* BUTTON */
+button {
+  padding: 10px 20px;
+  background: #1db954;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #1ed760;
+}
+
+/* SONG LIST */
+.song-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* SONG CARD */
+.song-card {
+  background: #222;
+  margin: 10px;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  transition: 0.3s;
+}
+
+.song-card:hover {
+  transform: scale(1.05);
+}
+
+.song-title {
+  margin-bottom: 10px;
+}
+
+/* ADMIN CARD */
+.card {
+  background: #222;
+  padding: 20px;
+  margin: 20px auto;
+  width: 300px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: scale(1.03);
+}
+
+.card input {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+}
+
+.card button {
+  width: 95%;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 30px;
+  text-align: center;
+  padding: 10px;
+  background: #000;
+}
+
+/* 🎯 HOVER EFFECTS */
+input:focus {
+  outline: 2px solid #1db954;
+}
+
+/* 📱 MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+
+  .navbar h2 {
+    font-size: 16px;
+  }
+
+  .container input {
+    width: 90%;
+  }
+
+  .password-box {
+    width: 90%;
+  }
+
+  .song-card {
+    width: 90%;
+  }
+
+  .card {
+    width: 90%;
+  }
+}
+
+.success {
+  background: #1db954;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 10px;
+}

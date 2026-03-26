@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+
+  <!-- 📱 Mobile Responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 🎨 CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- 👁️ Font Awesome -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='js/main.js') }}">
+
+
+</head>
+<body>
+
+<div class="container">
+
+  <h2>Login</h2>
+
+  <!-- 🔴 ERROR MESSAGE -->
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% for category, msg in messages %}
+      {% if category == "login_error" %}
+        <div style="background:red; padding:10px; border-radius:5px; margin-bottom:10px;">
+          {{ msg }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  {% endwith %}
+
+  <!-- FORM START -->
+  <form method="POST">
+
+      <!-- Username -->
+      <input type="text" name="username" placeholder="Username" required>
+
+      <!-- Password -->
+      <div class="password-box">
+        <input id="password" name="password" type="password" placeholder="Password" required>
+        
+        <span onclick="togglePassword()" class="eye-icon">
+          <i id="eyeIcon" class="fa fa-eye"></i>
+        </span>
+      </div>
+
+      <!-- Button -->
+      <button type="submit">Login</button>
+
+    </form>
+
+    <footer>
+      <p>Developed by Ayush</p>
+    </footer>
+
+  </div>
+
+  <!-- 🔗 JS -->
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>
